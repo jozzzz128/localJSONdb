@@ -16,7 +16,7 @@ const User = {
         this.following = number;
         return this.following;
     },
-    setCover: function (text) {
+    setCover: function (text = '#') {
         this.cover = text;
         return this.cover;
     },

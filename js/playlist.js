@@ -19,7 +19,7 @@ const Playlist = {
         this.type = setting;
         return this.type;
     },
-    setCover: function (text = '') {
+    setCover: function (text = '#') {
         this.cover = text;
         return this.cover;
     },
@@ -39,27 +39,42 @@ const Playlist = {
     getName: function () {
         return this.name;
     },
-    getFollowers: function () {
-        return this.followers;
+    getUser: function () {
+        return this.user;
     },
-    getFollowing: function () {
-        return this.following;
+    getType: function () {
+        return this.type;
     },
     getCover: function () {
         return this.cover;
+    },
+    getLiked: function () {
+        return this.liked;
+    },
+    getSongs: function () {
+        return this.songs;
+    },
+    getCreationDate: function () {
+        return this.creationDate;
     },
     /*--METHODS--*/
     getDetails: function () {
         return ``;
     },
-    topArtists: function () {
-        return [];
+    createPlaylist: function () {
+        return {};
     },
-    topTracks: function () {
-        return [];
+    deletePlaylist: function () {
     },
-    getPlaylists: function () {
-        return [];
+    saveChanges: function () {
+        const rawData = localStorage.getItem('data');
+        let data = {};
+        if(rawData){
+            data = JSON.parse(rawData);
+        }
+        data.playlist = this;
+        localStorage.setItem('data', JSON.stringify(data));
+        return this;
     },
 };
 
